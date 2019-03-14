@@ -16,7 +16,7 @@ def all_submissions(request):
 
 
 
-    return render(request, '', {})
+    return render(request, 'projects/all_submissions.html', {})
 
 
 def submission_details(request):
@@ -31,7 +31,7 @@ def submission_details(request):
 
 
 
-    return render(request, '', {})
+    return render(request, 'projects/submission_details.html', {})
 
 
 def vote_page(request):
@@ -46,7 +46,7 @@ def vote_page(request):
 
 
 
-    return render(request, '', {})
+    return render(request, 'projects/vote_page', {})
 
 
 def site_modal(request):
@@ -61,7 +61,7 @@ def site_modal(request):
 
 
 
-    return render(request, '', {})
+    return render(request, 'projects/site_modal.html', {})
 
 
 def submit_a_site(request):
@@ -76,7 +76,7 @@ def submit_a_site(request):
 
 
 
-    return render(request, '', {})
+    return render(request, 'projects/submit_a_site.html', {})
 
 
 def designers(request):
@@ -91,7 +91,7 @@ def designers(request):
 
 
 
-    return render(request, '', {})
+    return render(request, 'projects/designers.html', {})
 
 
 def api(request):
@@ -106,7 +106,7 @@ def api(request):
 
 
 
-    return render(request, '', {})
+    return render(request, 'projects/api.html', {})
 
 
 def user_profile(request):
@@ -121,7 +121,7 @@ def user_profile(request):
 
 
 
-    return render(request, '', {})
+    return render(request, 'projects/user_profile.html', {})
 
 
 def edit_profile(request):
@@ -136,7 +136,7 @@ def edit_profile(request):
 
 
 
-    return render(request, '', {})
+    return render(request, 'projects/edit_profile.html', {})
 
 
 def search_project(request):
@@ -151,7 +151,7 @@ def search_project(request):
 
 
 
-    return render(request, '', {})
+    return render(request, 'projects/search_project.html', {})
 
 
 def following(request):
@@ -166,7 +166,7 @@ def following(request):
 
 
 
-    return render(request, '', {})
+    return render(request, 'projects/following.html', {})
 
 
 def follower(request):
@@ -181,7 +181,7 @@ def follower(request):
 
 
 
-    return render(request, '', {})
+    return render(request, 'projects/follower.html', {})
 
 
 def test(request):
@@ -196,7 +196,7 @@ def test(request):
 
 
 
-    return render(request, '', {})
+    return render(request, 'projects/test.html', {})
 
 
 
