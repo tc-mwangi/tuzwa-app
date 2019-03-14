@@ -46,7 +46,7 @@ def vote_page(request):
 
 
 
-    return render(request, 'projects/vote_page', {})
+    return render(request, 'projects/vote_page.html', {})
 
 
 def site_modal(request):
@@ -154,7 +154,7 @@ def search_project(request):
     return render(request, 'projects/search_project.html', {})
 
 
-def following(request):
+def following_list(request):
     '''[summary]
     
     Arguments:
@@ -166,10 +166,10 @@ def following(request):
 
 
 
-    return render(request, 'projects/following.html', {})
+    return render(request, 'projects/following_list.html', {})
 
 
-def follower(request):
+def follower_list(request):
     '''[summary]
     
     Arguments:
@@ -181,10 +181,10 @@ def follower(request):
 
 
 
-    return render(request, 'projects/follower.html', {})
+    return render(request, 'projects/follower_list.html', {})
 
 
-def test(request):
+def test_page(request):
     '''[summary]
     
     Arguments:
@@ -196,7 +196,7 @@ def test(request):
 
 
 
-    return render(request, 'projects/test.html', {})
+    return render(request, 'shared/test_page.html', {})
 
 
 
