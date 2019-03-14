@@ -1,8 +1,199 @@
-from django.shortcuts import render
-
+from django.http  import HttpResponse, Http404, HttpResponseRedirect
+from django.shortcuts import render, redirect
+import datetime as dt
+from django.contrib.auth.decorators import login_required
 
 
 def all_submissions(request):
+    '''[summary]
+    
+    Arguments:
+        request {[type]} -- [description]
+    
+    Returns:
+        [type] -- [description]
+    '''
+
+
+
+    return render(request, '', {})
+
+
+def submission_details(request):
+    '''[summary]
+    
+    Arguments:
+        request {[type]} -- [description]
+    
+    Returns:
+        [type] -- [description]
+    '''
+
+
+
+    return render(request, '', {})
+
+
+def vote_page(request):
+    '''[summary]
+    
+    Arguments:
+        request {[type]} -- [description]
+    
+    Returns:
+        [type] -- [description]
+    '''
+
+
+
+    return render(request, '', {})
+
+
+def site_modal(request):
+    '''[summary]
+    
+    Arguments:
+        request {[type]} -- [description]
+    
+    Returns:
+        [type] -- [description]
+    '''
+
+
+
+    return render(request, '', {})
+
+
+def submit_a_site(request):
+    '''[summary]
+    
+    Arguments:
+        request {[type]} -- [description]
+    
+    Returns:
+        [type] -- [description]
+    '''
+
+
+
+    return render(request, '', {})
+
+
+def designers(request):
+    '''[summary]
+    
+    Arguments:
+        request {[type]} -- [description]
+    
+    Returns:
+        [type] -- [description]
+    '''
+
+
+
+    return render(request, '', {})
+
+
+def api(request):
+    '''[summary]
+    
+    Arguments:
+        request {[type]} -- [description]
+    
+    Returns:
+        [type] -- [description]
+    '''
+
+
+
+    return render(request, '', {})
+
+
+def user_profile(request):
+    '''[summary]
+    
+    Arguments:
+        request {[type]} -- [description]
+    
+    Returns:
+        [type] -- [description]
+    '''
+
+
+
+    return render(request, '', {})
+
+
+def edit_profile(request):
+    '''[summary]
+    
+    Arguments:
+        request {[type]} -- [description]
+    
+    Returns:
+        [type] -- [description]
+    '''
+
+
+
+    return render(request, '', {})
+
+
+def search_project(request):
+    '''[summary]
+    
+    Arguments:
+        request {[type]} -- [description]
+    
+    Returns:
+        [type] -- [description]
+    '''
+
+
+
+    return render(request, '', {})
+
+
+def following(request):
+    '''[summary]
+    
+    Arguments:
+        request {[type]} -- [description]
+    
+    Returns:
+        [type] -- [description]
+    '''
+
+
+
+    return render(request, '', {})
+
+
+def follower(request):
+    '''[summary]
+    
+    Arguments:
+        request {[type]} -- [description]
+    
+    Returns:
+        [type] -- [description]
+    '''
+
+
+
+    return render(request, '', {})
+
+
+def test(request):
+    '''[summary]
+    
+    Arguments:
+        request {[type]} -- [description]
+    
+    Returns:
+        [type] -- [description]
+    '''
+
 
 
     return render(request, '', {})
@@ -10,17 +201,7 @@ def all_submissions(request):
 
 
 
-  url(r'^$', views.all_submissions, name='all_submissions'),
-    url(r'^$', views.submission_page, name='submission_page'),
-    url(r'^$', views.site_modal, name='site_modal'), 
-    url(r'^$', views.vote_page, name='vote_page'),
-    url(r'^submit/$', views.submit_a_site, name='submit_a_site'),
-    url(r'^designers/$', views.designers, name='designers'),
-    url(r'^submit/$', views.api, name='api'),
-    url(r'^u/(?P<username>[\w-]+)$', views.user_profile, name='user_view'),  
-    url(r'^profile/$', views.user_profile, name='user_profile'),
-    url(r'^profile/edit$', views.edit_profile, name='edit_profile'),
-    url(r'^search/$', views.search_projects, name='search_projects'),   
-    url(r'^following/$', views.following, name='following'),
-    url(r'^followers/$', views.follower, name='follower'), 
-    url(r'^test/$', views.test, name='test'),
+
+
+    
+  
