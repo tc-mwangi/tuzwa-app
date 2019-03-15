@@ -1,1 +1,25 @@
-<h1>user profile</h1>
+<h1>Profile</h1>
+
+<img src="{{profile.avatar.url}}" alt="">
+
+<p>{{profile.title}}</p>
+<p>{{profile.bio}}</p>
+
+<h1>Test Project</h1>
+<p>{{profile.title}}</p>
+<p>{{profile.screenshot}}</p>
+<p>{{profile.description}}</p>
+<p>{{profile.link}}</p>
+
+
+
+
+<h1>Projects</h1>
+{%for project of projects%}
+
+    <p>{{project.title}}</p>
+    <p>{{project.screenshot}}</p>
+    <p>{{project.description}}</p>
+    <p>{{project.link}}</p>
+
+{%endfor%}

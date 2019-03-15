@@ -10,6 +10,7 @@ class Project(models.Model):
     Arguments:
         models {[type]} -- [description]
     '''
+    username = models.ForeignKey(User,on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     screenshot = models.ImageField(upload_to='screenshot/')
     description = models.CharField(max_length=255)
@@ -32,6 +33,7 @@ class Profile(models.Model):
         [type] -- [description]
     '''
 
+    username = models.ForeignKey(User,on_delete=models.CASCADE)
     avatar = models.ImageField(upload_to='avatar/')
     bio = models.TextField(max_length=255)
     title = models.CharField(max_length=255)
@@ -42,7 +44,7 @@ class Profile(models.Model):
 
 
     def __str__(self):
-        return self.avatar
+        return self.title
 
     
 
