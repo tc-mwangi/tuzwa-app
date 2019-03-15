@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 import datetime as dt
 from django import forms
+from tinymce.models import HTMLField
 
 
 class Project(models.Model):
@@ -10,7 +11,7 @@ class Project(models.Model):
     Arguments:
         models {[type]} -- [description]
     '''
-    username = models.ForeignKey(User,on_delete=models.CASCADE)
+    the_user = models.ForeignKey(User,on_delete=models.CASCADE, null=True)
     title = models.CharField(max_length=255)
     screenshot = models.ImageField(upload_to='screenshot/')
     description = models.CharField(max_length=255)
@@ -33,7 +34,7 @@ class Profile(models.Model):
         [type] -- [description]
     '''
 
-    username = models.ForeignKey(User,on_delete=models.CASCADE)
+    the_user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     avatar = models.ImageField(upload_to='avatar/')
     bio = models.TextField(max_length=255)
     title = models.CharField(max_length=255)

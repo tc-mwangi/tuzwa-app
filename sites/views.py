@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from sites.models import Project, Profile
 from django.contrib.auth.decorators import login_required
 import datetime as dt
+from django.contrib.auth import authenticate, login, logout
 
 
 def all_submissions(request):
@@ -120,10 +121,12 @@ def user_profile(request):
     Returns:
         [type] -- [description]
     '''
-
+    
     current_user = request.user
-    profile = Profile.objects.get(username=current_user)
-    projects = Project.objects.filter(username=current_user)
+    profile = Profile.objects.all()
+    print(profile)
+    projects = Project.objects.all()
+    print(projects)
 
     return render(request, 'projects/user_profile.html', {"projects":projects, "profile":profile})
 
@@ -201,6 +204,17 @@ def test_page(request):
 
 
     return render(request, 'shared/test_page.html', {})
+
+
+
+def logout(request):
+
+
+
+    return render(request, 'projects/all_submissions.html', {})
+
+
+
 
 
 
