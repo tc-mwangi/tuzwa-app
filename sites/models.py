@@ -34,7 +34,6 @@ class Profile(models.Model):
 
     avatar = models.ImageField(upload_to='avatar/')
     bio = models.TextField(max_length=255)
-    project = models.ForeignKey(Project,on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     screenshot = models.ImageField(upload_to='screenshot/')
     description = models.CharField(max_length=255)
