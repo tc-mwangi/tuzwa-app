@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'sites',
+    'bootstrap4',
     'tinymce',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -65,6 +66,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -129,14 +131,14 @@ STATICFILES_DIRS =[
 ]
 
 MEDIA_URL = '/media/'
-
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 
 
-LOGIN_REDIRECT_URL = '/tuzwwwa/profile'
-LOGIN_URL = 'tuzwwwa/all_submissions'
 
-LOGOUT_REDIRECT_URL = '/tuzwwwa/all_submissions'
-LOGOUT_URL = '/all_submissions'
+LOGIN_REDIRECT_URL = '/user_profile'
+# LOGIN_URL = '/all_submissions'
+
+LOGOUT_REDIRECT_URL = '/'
+# LOGOUT_URL = '/all_submissions'

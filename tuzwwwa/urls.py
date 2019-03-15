@@ -22,8 +22,8 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
+    url(r'^$', views.all_submissions, name='all_submissions'),
     url(r'^admin/', admin.site.urls),
-    # url(r'^logout/$', views.logout, {"next_page":'/'}),
     url(r'^accounts/', include('registration.backends.simple.urls')), 
     url(r'^tuzwwwa/', include('sites.urls')),
     url(r'^logout/$', views.logout, {"next_page": '/'}), 

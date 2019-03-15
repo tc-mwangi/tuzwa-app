@@ -4,10 +4,11 @@ from sites.models import Project, Profile
 from django.contrib.auth.decorators import login_required
 import datetime as dt
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 
 
 def all_submissions(request):
-    '''[summary]
+    '''displays all submitted projects
     
     Arguments:
         request {[type]} -- [description]
@@ -122,13 +123,22 @@ def user_profile(request):
         [type] -- [description]
     '''
     
+    
+    # profile = Profile.objects.all()
+    # print(profile)
+    # projects = Project.objects.all()
+    # print(projects)
+
     current_user = request.user
-    profile = Profile.objects.all()
+    profile = Profile.objects.get(username=current_user)
     print(profile)
-    projects = Project.objects.all()
+    projects = Project.objects.filter(username=current_user)
     print(projects)
+    
+
 
     return render(request, 'projects/user_profile.html', {"projects":projects, "profile":profile})
+
 
 
 def edit_profile(request):
@@ -207,11 +217,6 @@ def test_page(request):
 
 
 
-def logout(request):
-
-
-
-    return render(request, 'projects/all_submissions.html', {})
 
 
 

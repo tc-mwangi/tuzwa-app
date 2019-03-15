@@ -3,12 +3,11 @@ from sites.models import Project, Profile
 
 
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ('title', 'screenshot', 'description', 'link')
+    list_display = ('username', 'title', 'screenshot', 'description', 'link')
 
 
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('avatar', 'bio', 'title','screenshot', 'description', 'link', 'email')
-
+    list_display = ('username', 'avatar', 'bio', 'title','screenshot', 'description', 'link', 'email')
 
 
 admin.site.register(Project, ProjectAdmin)

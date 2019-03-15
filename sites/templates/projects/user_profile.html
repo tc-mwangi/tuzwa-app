@@ -1,16 +1,25 @@
+{% load bootstrap4 %}
+{% load staticfiles %}
+
 <h1>Profile</h1>
 
-<img src="{{profile.avatar.url}}" alt="">
+{% for pro in profile %}
+<img src="{{pro.avatar.url}}" alt="avatar" height="200", width="200">
+
+
+
 
 <p>{{profile.title}}</p>
 <p>{{profile.bio}}</p>
 
 <h1>Test Project</h1>
 <p>{{profile.title}}</p>
-<p>{{profile.screenshot}}</p>
+
+<img src="{{pro.screenshot.url}}" alt="screenshot" height="200", width="200">
 <p>{{profile.description}}</p>
 <p>{{profile.link}}</p>
 
+{% endfor %}
 
 
 
@@ -18,7 +27,7 @@
 {%for project in projects%}
 
     <p>{{project.title}}</p>
-    <p>{{project.screenshot}}</p>
+    <img src="{{project.screenshot.url}}" alt="screenshot" height="200", width="200">
     <p>{{project.description}}</p>
     <p>{{project.link}}</p>
 

@@ -6,7 +6,6 @@ from . import views
 
 
 urlpatterns = [
-    url(r'^$', views.all_submissions, name='all_submissions'),
     url(r'^submissions/$', views.submission_details, name='submission_details'),
     url(r'^modal/$', views.site_modal, name='site_modal'), 
     url(r'^vote/$', views.vote_page, name='vote_page'),
@@ -24,4 +23,5 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+
 
