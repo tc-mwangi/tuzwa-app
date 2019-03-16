@@ -12,10 +12,10 @@ class Category(models.Model):
         models {[type]} -- [description]
     '''
 
-    category = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, null=True)
 
     def __str__(self):
-        return self.category
+        return self.name
 
 
     def save_category(self):
@@ -33,10 +33,10 @@ class Country(models.Model):
         models {[type]} -- [description]
     '''
 
-    country = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, null=True)
 
     def __str__(self):
-        return self.country
+        return self.name
 
     def save_country(self):
         self.save()
@@ -56,7 +56,7 @@ class Project(models.Model):
 
 
     username = models.ForeignKey(User,on_delete=models.CASCADE)
-    avatar = models.ImageField(upload_to='avatar/')
+    avatar = models.ImageField(upload_to='avatar/',null=True)
     title = models.CharField(max_length=255)
     screenshot = models.ImageField(upload_to='screenshot/') 
     description = models.CharField(max_length=255)
@@ -75,13 +75,6 @@ class Project(models.Model):
 
     def delete_project(self):
         self.delete()
-
-    @classmethod
-    def get_all_projects():
-        projects = Project.objects.all()
-
-        
-
     
     
 class Profile(models.Model):
@@ -97,15 +90,12 @@ class Profile(models.Model):
     username = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     avatar = models.ImageField(upload_to='avatar/')
     bio = models.TextField(max_length=255)
-    title = models.CharField(max_length=255)
-    screenshot = models.ImageField(upload_to='screenshot/')
-    description = models.CharField(max_length=255)
-    link = models.CharField(max_length=255)
+    project = models.ForeignKey(Project,on_delete=models.CASCADE)
     email = models.EmailField()
 
 
     def __str__(self):
-        return self.title
+        return self.username
 
     def save_profile(self):
         self.save()
@@ -128,7 +118,7 @@ class Rating(models.Model):
     usability = models.IntegerField(blank=True,default=0)
     creativity = models.IntegerField(blank=True,default=0)
     content = models.IntegerField(blank=True,default=0)
-    overall = models.IntegerField(blank=True,default=0)
+    overall_score = models.IntegerField(blank=True,default=0)
     project = models.ForeignKey(Project,on_delete=models.CASCADE)
    
 
