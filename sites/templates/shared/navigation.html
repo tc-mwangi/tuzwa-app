@@ -11,14 +11,38 @@
         <li><a href="{% url 'auth_logout' %}">Logout</a></li>
       </ul>
 
-      <ul id="nav-mobile" class="sidenav">
-        <li><a href="/accounts/login">Register/Login</a></li>
-        <li><a href="/admin">Admin</a></li>
-        <li><a href="{% url 'all_submissions' %}">Home</a></li>
-        <li><a href="{% url 'user_profile' %}">Profile</a></li>
-        <li><a href="{% url 'api' %}">API</a></li>
-        <li><a href="{% url 'auth_logout' %}">Logout</a></li>
+      <ul id="slide-out" class="sidenav sidenav-close">
+          <li><div class="user-view">
+            <div class="background">
+              <img src="https://images.unsplash.com/photo-1429892494097-cccc61109f58?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
+            </div>
+            <a href="#user"><img class="circle" src="https://images.unsplash.com/photo-1506634572416-48cdfe530110?"></a>
+            <a href="#name"><span class="white-text name">profile.username</span></a>
+            <a href="#email"><span class="white-text email">profile.email</span></a>
+          </div></li>
+          <li><a href="/accounts/login"><i class="material-icons">cloud</i>Register/Login</a></li>
+          <li><div class="divider"></div></li>
+          <li><a href="/admin"><i class="material-icons">cloud</i>Admin</a></li>
+          <li><div class="divider"></div></li>
+          <li><div class="divider"></div></li>
+          <li><a href="{% url 'all_submissions' %}"><i class="material-icons">cloud</i>Home</a></li>
+          <li><div class="divider"></div></li>
+          <li><a href="{% url 'user_profile' %}"><i class="material-icons">cloud</i>Profile</a></li>
+          <li><div class="divider"></div></li>
+          <li><a href="{% url 'api' %}"><i class="material-icons">cloud</i>API</a></li>
+          <li><div class="divider"></div></li>
+          <li><a href="{% url 'auth_logout' %}"><i class="material-icons">cloud</i>Logout</a></li>
+        
+
+         
+        </ul>
+       
+
+      <ul id="slide-out" class="sidenav">
+          <li><a class="sidenav-close" href="#!">Clicking this will close Sidenav</a></li>
       </ul>
+      <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+         
     
             
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
