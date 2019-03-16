@@ -69,12 +69,51 @@ class Project(models.Model):
     def __str__(self):
         return self.title
 
-
     def save_project(self):
         self.save()
 
     def delete_project(self):
         self.delete()
+
+
+    @classmethod
+    def get_all_projects(cls):
+        projects = cls.objects.all()
+        return projects
+
+    @classmethod
+    def get_category(cls):
+        projects = cls.objects.filter()
+        return projects
+
+    @classmethod
+    def get_user_projects(cls,user_id):
+        projects = cls.objects.filter(username=user_id)
+        return projects
+
+    @classmethod
+    def search_projects(cls, search_term):
+        search_projects = cls.objects.filter(title__icontains=search_term)
+
+
+    # @classmethod
+    # def todays_news(cls):
+    #     today = dt.date.today()
+    #     news = cls.objects.filter(pub_date__date = today)
+    #     return news
+
+    # @classmethod
+    # def days_news(cls,date):
+    #     news = cls.objects.filter(pub_date__date = date)
+    #     return news
+
+    # @classmethod
+    # def search_by_title(cls,search_term):
+    #     news = cls.objects.filter(title__icontains=search_term)
+    #     return news
+
+
+
     
     
 class Profile(models.Model):
@@ -118,8 +157,9 @@ class Rating(models.Model):
     usability = models.IntegerField(blank=True,default=0)
     creativity = models.IntegerField(blank=True,default=0)
     content = models.IntegerField(blank=True,default=0)
-    overall_score = models.IntegerField(blank=True,default=0)
+    overall_score = models.DecimalField(decimal_places=0, max_digits=20,blank=True,default=0)
     project = models.ForeignKey(Project,on_delete=models.CASCADE)
+    
    
 
     def __str__(self):

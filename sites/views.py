@@ -17,6 +17,7 @@ def all_submissions(request):
     Returns:
         [type] -- [description]
     '''
+    
 
 
 
