@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 
 
+@login_required(login_url='/accounts/login/')
 def all_submissions(request):
     '''displays all submitted projects
     
@@ -129,15 +130,15 @@ def user_profile(request):
     # projects = Project.objects.all()
     # print(projects)
 
-    current_user = request.user
-    profile = Profile.objects.get(username=current_user)
-    print(profile)
-    projects = Project.objects.filter(username=current_user)
-    print(projects)
+    # current_user = request.user
+    # profile = Profile.objects.get(username=current_user)
+    # print(profile)
+    # projects = Project.objects.filter(username=current_user)
+    # print(projects)
     
 
 
-    return render(request, 'projects/user_profile.html', {"projects":projects, "profile":profile})
+    return render(request, 'projects/user_profile.html', {})
 
 
 

@@ -19,6 +19,7 @@ urlpatterns = [
     url(r'^search/$', views.search_project, name='search_project'),   
     url(r'^following/$', views.following_list, name='following_list'),
     url(r'^followers/$', views.follower_list, name='follower_list'), 
+    url(r'^api/$', views.api, name='api'),
     url(r'^test/$', views.test_page, name='test_page'),
 ]
 
