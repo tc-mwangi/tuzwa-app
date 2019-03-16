@@ -1,0 +1,1 @@
+web: gunicorn tuzwwwa.wsgi --log-file -
