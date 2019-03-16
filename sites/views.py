@@ -39,6 +39,7 @@ def submission_details(request):
     return render(request, 'projects/submission_details.html', {})
 
 
+@login_required(login_url='/accounts/login/')
 def vote_page(request):
     '''[summary]
     
