@@ -6,7 +6,8 @@ from . import views
 
 
 urlpatterns = [
-    url(r'^submissions/$', views.submission_details, name='submission_details'),
+    url(r'^submissions/$', views.all_submissions, name='all_submissions'),
+    url(r'^submission-details/$', views.submission_details, name='submission_details'),
     url(r'^modal/$', views.site_modal, name='site_modal'), 
     url(r'^vote/$', views.vote_page, name='vote_page'),
     url(r'^submit/$', views.submit_a_site, name='submit_a_site'),
