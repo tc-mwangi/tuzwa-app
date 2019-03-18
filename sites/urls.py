@@ -21,6 +21,10 @@ urlpatterns = [
     url(r'^followers/$', views.follower_list, name='follower_list'), 
     url(r'^api/$', views.api, name='api'),
     url(r'^test/$', views.test_page, name='test_page'),
+    url(r'^followers/$', views.previous_winners, name='previous_winners'), 
+    url(r'^api/$', views.directory, name='directory'),
+    url(r'^test/$', views.site_of_the_day, name='site_of_the_day'),
+    url(r'^test/$', views.nominees, name='nominees'),
 ]
 
 if settings.DEBUG:

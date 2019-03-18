@@ -93,28 +93,10 @@ class Project(models.Model):
 
     @classmethod
     def search_projects(cls, search_term):
-        search_projects = cls.objects.filter(title__icontains=search_term)
+        projects = cls.objects.filter(title__icontains=search_term)
+        return projects
 
 
-    # @classmethod
-    # def todays_news(cls):
-    #     today = dt.date.today()
-    #     news = cls.objects.filter(pub_date__date = today)
-    #     return news
-
-    # @classmethod
-    # def days_news(cls,date):
-    #     news = cls.objects.filter(pub_date__date = date)
-    #     return news
-
-    # @classmethod
-    # def search_by_title(cls,search_term):
-    #     news = cls.objects.filter(title__icontains=search_term)
-    #     return news
-
-
-
-    
     
 class Profile(models.Model):
     '''creates instances of user profiles
@@ -157,7 +139,7 @@ class Rating(models.Model):
     usability = models.IntegerField(blank=True,default=0)
     creativity = models.IntegerField(blank=True,default=0)
     content = models.IntegerField(blank=True,default=0)
-    overall_score = models.DecimalField(decimal_places=0, max_digits=20,blank=True,default=0)
+    overall_score = models.DecimalField(decimal_places=2, max_digits=20,blank=True,default=0)
     project = models.ForeignKey(Project,on_delete=models.CASCADE)
     
    

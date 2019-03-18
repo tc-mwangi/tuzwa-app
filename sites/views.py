@@ -1,13 +1,13 @@
 from django.http  import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render, redirect
-from sites.models import Project, Profile
+from sites.models import Category, Country, Project, Profile
 from django.contrib.auth.decorators import login_required
 import datetime as dt
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from annoying.functions import get_object_or_None
 
 
-@login_required(login_url='/accounts/login/')
 def all_submissions(request):
     '''displays all submitted projects
     
@@ -17,11 +17,22 @@ def all_submissions(request):
     Returns:
         [type] -- [description]
     '''
-    
+
+    projects = Project.get_all_projects()
+    print(projects)
+
+
+    return render(request, 'projects/all_submissions.html', {"projects":projects})
+
+   
+
+ 
 
 
 
-    return render(request, 'projects/all_submissions.html', {})
+
+
+
 
 
 def submission_details(request):
@@ -217,6 +228,68 @@ def test_page(request):
 
 
     return render(request, 'shared/test_page.html', {})
+
+
+def nominees(request):
+    '''[summary]
+    
+    Arguments:
+        request {[type]} -- [description]
+    
+    Returns:
+        [type] -- [description]
+    '''
+
+
+
+    return render(request, 'shared/nominees.html', {})
+
+def site_of_the_day(request):
+    '''[summary]
+    
+    Arguments:
+        request {[type]} -- [description]
+    
+    Returns:
+        [type] -- [description]
+    '''
+
+
+
+    return render(request, 'shared/site_of_the_day.html', {})
+
+
+def directory(request):
+    '''[summary]
+    
+    Arguments:
+        request {[type]} -- [description]
+    
+    Returns:
+        [type] -- [description]
+    '''
+
+
+
+    return render(request, 'shared/directory.html', {})
+
+
+def previous_winners(request):
+    '''[summary]
+    
+    Arguments:
+        request {[type]} -- [description]
+    
+    Returns:
+        [type] -- [description]
+    '''
+
+
+
+    return render(request, 'shared/previous_winners.html', {})
+
+
+
 
 
 

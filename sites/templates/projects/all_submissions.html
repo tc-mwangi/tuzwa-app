@@ -11,16 +11,16 @@
         <br><br>
         <h1 class="header center amber-text text-lighten-2">tuzwwwa</h1>
         <div class="row center">
-          <h5 class="header col s12 light">Appreciating spectacular websites in Afrika</h5>
+          <h5 class="header col s12 light">a curated collection of the best websites in africa</h5>
         </div>
         <div class="row center">
-          <!-- <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light amber lighten-1">Get Started</a> -->
+          <a href="{% url 'user_profile' %}" id="download-button" class="btn-large waves-effect waves-light amber lighten-1">SUBMIT A WEBSITE</a>
         </div>
         <br><br>
 
       </div>
     </div>
-    <div class="parallax"><img src="https://images.unsplash.com/photo-1526304760382-3591d3840148?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="intro_image"></div> 
+    <div class="parallax"><img src="https://images.unsplash.com/photo-1519011985187-444d62641929?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="intro_image"></div> 
     
   </div>
 
@@ -35,88 +35,28 @@
       <!-- Project Card Section   -->
       <div class="row">
 
+        {% for project in projects%} 
         <div class="col s12 m4">
           <div class="card">
                 <div class="card-image">
-                  <img src="https://images.unsplash.com/photo-1518693800412-ad92111a1d46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
-                  <span class="card-title">Title</span>
+                  <img src="{{project.screenshot.url}}">
+                  <span class="card-title">{{profile.title}}</span>
                   <a class="btn-floating halfway-fab waves-effect waves-light amber" href="{%url 'vote_page'%}"><i class="material-icons">check</i></a>
                 </div>
                 <div class="card-content">
-                  <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                  <p>{{project.description}}</p>
+                  <p>{{project.country}}</p>
                 </div>
               </div>
         </div>
-
-        <div class="col s12 m4">
-            <div class="card">
-                  <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1518693800412-ad92111a1d46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
-                    <span class="card-title">Title</span>
-                    <a class="btn-floating halfway-fab waves-effect waves-light amber" href="{%url 'vote_page'%}"><i class="material-icons">check</i></a>
-                  </div>
-                  <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                  </div>
-                </div>
-          </div>
-
-          <div class="col s12 m4">
-              <div class="card">
-                    <div class="card-image">
-                      <img src="https://images.unsplash.com/photo-1518693800412-ad92111a1d46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
-                      <span class="card-title">Title</span>
-                      <a class="btn-floating halfway-fab waves-effect waves-light amber" href="{%url 'vote_page'%}"><i class="material-icons">check</i></a>
-                    </div>
-                    <div class="card-content">
-                      <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                    </div>
-                  </div>
-            </div>
-            <div class="col s12 m4">
-                <div class="card">
-                      <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1518693800412-ad92111a1d46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
-                        <span class="card-title">Title</span>
-                        <a class="btn-floating halfway-fab waves-effect waves-light amber" href="{%url 'vote_page'%}"><i class="material-icons">check</i></a>
-                      </div>
-                      <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                      </div>
-                    </div>
-              </div>
-
-              <div class="col s12 m4">
-                  <div class="card">
-                        <div class="card-image">
-                          <img src="https://images.unsplash.com/photo-1518693800412-ad92111a1d46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
-                          <span class="card-title">Title</span>
-                          <a class="btn-floating halfway-fab waves-effect waves-light amber" href="{%url 'vote_page'%}"><i class="material-icons">check</i></a>
-                        </div>
-                        <div class="card-content">
-                          <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                        </div>
-                      </div>
-                </div>
-
-                <div class="col s12 m4">
-                    <div class="card">
-                          <div class="card-image">
-                            <img src="https://images.unsplash.com/photo-1518693800412-ad92111a1d46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
-                            <span class="card-title">Title</span>
-                            <a class="btn-floating halfway-fab waves-effect waves-light amber" href="{%url 'vote_page'%}"><i class="material-icons">check</i></a>
-                          </div>
-                          <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                          </div>
-                        </div>
-                  </div>
+        {%endfor%}
+              
       </div>
       <!-- End Project Card Section -->
 
       <div class="center">
       <ul class="pagination">
-          <li class="disabled amber" ><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+          <li class="disabled " ><a href="#!"><i class="material-icons">chevron_left</i></a></li>
           <li class="active"><a href="#!">1</a></li>
           <li class="waves-effect"><a href="#!">2</a></li>
           <li class="waves-effect"><a href="#!">3</a></li>
@@ -135,11 +75,11 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">Nominees</h5>
+          <h1 class="header col s12 light">Vote</h1>
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="https://images.unsplash.com/photo-1526304760382-3591d3840148?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="Unsplashed background img 2"></div>
+    <div class="parallax"><img src="https://images.unsplash.com/photo-1518601794912-1af91724e528?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="Unsplashed background img 2"></div>
   </div>
 
   <div class="container">
@@ -161,47 +101,70 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+          <h5 class="header col s12 light">Your opinion matters</h5>
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="https://images.unsplash.com/photo-1526304760382-3591d3840148?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="Unsplashed background img 3"></div>
+    <div class="parallax"><img src="https://images.unsplash.com/photo-1505148359496-35d8d1ec9645?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="Unsplashed background img 3"></div>
   </div>
 
   <footer class="page-footer amber">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-          <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+          <h5 class="white-text">Categories</h5>
+          <p class="grey-text text-lighten-4">browse categories to discover awesome websites</p>
 
 
         </div>
         <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
+          <h5 class="white-text">Categories</h5>
           <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
+            <li><a class="white-text" href="{% url 'nominees' %}">Nominees</a></li>
+            <li><a class="white-text" href="{% url 'site_of_the_day' %}">Site of the Day</a></li>
+            <li><a class="white-text" href="{% url 'directory' %}">Directory</a></li>
+            <li><a class="white-text" href="{% url 'previous_winners' %}">Previous Winners</a></li>
           </ul>
         </div>
         <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
+          <h5 class="white-text">Links</h5>
           <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
+            
+<li><a class="white-text" href="/accounts/login">Register/Login</a></li>
+
+<li><a class="white-text" href="/admin">Admin</a></li>
+
+<li><a class="white-text" href="{% url 'all_submissions' %}">Home</a></li>
+
+<li><a class="white-text" href="{% url 'user_profile' %}">Profile</a></li>
+
+<li><a class="white-text" href="{% url 'api' %}">API</a></li>
+
+<li><a class="white-text" href="{% url 'auth_logout' %}">Logout</a></li>
+
           </ul>
         </div>
       </div>
-    </div>
+    </div
     <div class="footer-copyright">
       <div class="container">
-      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">saber_rider</a>
+      Made by <a class="brown-text text-lighten-3" href="https://github.com/tc-mwangi">saber_rider</a>
       </div>
     </div>
   </footer>
 
 {%endblock%}
+
+
+<li><a href="/accounts/login"><i class="material-icons">cloud</i>Register/Login</a></li>
+<li><div class="divider"></div></li>
+<li><a href="/admin"><i class="material-icons">cloud</i>Admin</a></li>
+<li><div class="divider"></div></li>
+<li><div class="divider"></div></li>
+<li><a href="{% url 'all_submissions' %}"><i class="material-icons">cloud</i>Home</a></li>
+<li><div class="divider"></div></li>
+<li><a href="{% url 'user_profile' %}"><i class="material-icons">cloud</i>Profile</a></li>
+<li><div class="divider"></div></li>
+<li><a href="{% url 'api' %}"><i class="material-icons">cloud</i>API</a></li>
+<li><div class="divider"></div></li>
+<li><a href="{% url 'auth_logout' %}"><i class="material-icons">cloud</i>Logout</a></li>
