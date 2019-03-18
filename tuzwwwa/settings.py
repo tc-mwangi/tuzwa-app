@@ -50,6 +50,8 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 INSTALLED_APPS = [
     'sites',
     'bootstrap4',
+    'materialize_forms',
+    'materializecssform',
     'tinymce',
     'django.contrib.admin',
     'django.contrib.auth',

@@ -1,1 +1,67 @@
-<h1>submit a site</h1>
+{%extends 'shared/base.html'%}
+{% load static %}
+{% load staticfiles %}
+{% load materializecss %}
+{% load bootstrap4 %}
+
+{%block content%}
+{{block.supper}}
+
+
+<!DOCTYPE html>
+<html>
+
+        <head>
+
+                {% block css %}
+                <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.min.css" integrity="sha256-qj3p6P1fJIV+Ndv7RW1ovZI2UhOuboj9GcODzcNFIN8=" crossorigin="anonymous" />
+                {% endblock css %}
+                
+                </head>
+
+                <body >
+
+                        {% block javascript %}
+                        <script
+                        src="https://code.jquery.com/jquery-3.3.1.min.js"
+                        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                        crossorigin="anonymous"></script>
+                        
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.min.js" integrity="sha256-SrBfGi+Zp2LhAvy9M1bWOCXztRU9Ztztxmu5BcYPcPE=" crossorigin="anonymous"></script>
+                        
+                        <script>
+                        $(document).ready(function(){
+                        
+                        // Initialize materialize data picker
+                        $('.datepicker').datepicker({'format': 'yyyy-mm-dd'});
+                        $('select').formSelect();
+                        
+                        });
+                        
+                        </script>
+                        
+                        {% endblock javascript %}
+
+                        <form action="{% url 'submit_a_site'%}" method="post"  enctype="multipart/form-data">
+
+                            {% csrf_token%}
+                            {{ form|materializecss }}
+                            
+                            <div class="form-group text-center">
+                              <input type="submit" class="btn btn-primary sign-up-button" value="Share">
+                            </div>
+                            <input type="hidden" name="next" value="{{next}}">
+                          </form>
+
+                          <!-- exclude = ['username', 'avatar', 'title' ,'screenshot', 'description', 'link', 'country']
+                         -->
+                        
+                        
+                        
+                        
+                        </body>
+
+</html>
+
+{%endblock%}

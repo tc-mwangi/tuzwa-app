@@ -6,7 +6,8 @@ import datetime as dt
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from annoying.functions import get_object_or_None
-
+from django.core.exceptions import ObjectDoesNotExist
+from .forms import ProfileForm, ProjectForm, RatingForm
 
 def all_submissions(request):
     '''displays all submitted projects
@@ -17,22 +18,17 @@ def all_submissions(request):
     Returns:
         [type] -- [description]
     '''
+    date = dt.date.today()
 
     projects = Project.get_all_projects()
     print(projects)
 
+    current_user = request.user
+    # profile = Profile.objects.get(username=current_user)
+    # print(profile)
+
 
     return render(request, 'projects/all_submissions.html', {"projects":projects})
-
-   
-
- 
-
-
-
-
-
-
 
 
 def submission_details(request):
@@ -90,10 +86,24 @@ def submit_a_site(request):
     Returns:
         [type] -- [description]
     '''
+    current_user = request.user
+    form = ProjectForm()
 
 
+    if request.method == 'POST':
+        form = ProjectForm(request.POST, request.FILES)
+        if form.is_valid():
+            project = form.save(commit=False)
+            project.username = current_user
+            project.save()
+        return HttpResponseRedirect('user_profile')
 
-    return render(request, 'projects/submit_a_site.html', {})
+    else:
+        form = ProjectForm()
+ 
+    return render(request, 'projects/submit_a_site.html', {"form": form})
+
+
 
 
 def designers(request):
@@ -136,22 +146,14 @@ def user_profile(request):
     Returns:
         [type] -- [description]
     '''
+    current_user = request.user
+    projects = Project.get_user_projects(current_user)
+    profile = Profile.get_user_profile(current_user)
     
-    
-    # profile = Profile.objects.all()
-    # print(profile)
-    # projects = Project.objects.all()
-    # print(projects)
-
-    # current_user = request.user
-    # profile = Profile.objects.get(username=current_user)
-    # print(profile)
-    # projects = Project.objects.filter(username=current_user)
-    # print(projects)
-    
+   
 
 
-    return render(request, 'projects/user_profile.html', {})
+    return render(request, 'projects/user_profile.html', {"projects":projects,"profile":profile})
 
 
 
@@ -244,6 +246,21 @@ def nominees(request):
 
     return render(request, 'shared/nominees.html', {})
 
+
+def previous_winners(request):
+    '''[summary]
+    
+    Arguments:
+        request {[type]} -- [description]
+    
+    Returns:
+        [type] -- [description]
+    '''
+
+
+
+    return render(request, 'shared/previous_winners.html', {})
+
 def site_of_the_day(request):
     '''[summary]
     
@@ -274,7 +291,8 @@ def directory(request):
     return render(request, 'shared/directory.html', {})
 
 
-def previous_winners(request):
+@login_required(login_url='/accounts/login/')
+def create_profile(request):
     '''[summary]
     
     Arguments:
@@ -283,10 +301,34 @@ def previous_winners(request):
     Returns:
         [type] -- [description]
     '''
+    current_user = request.user
+    if request.method=='POST':
+        form = ProfileForm(request.POST,request.FILES)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.username = current_user
+
+            profile.save()
+        return redirect('user_profile')
+    else:
+        form=ProfileForm()
+
+    return render(request, 'projects/create_profile.html', {"form":form})
 
 
 
-    return render(request, 'shared/previous_winners.html', {})
+# try:
+#         if not request.user.is_authenticated:
+#             return redirect('/accounts/login/')
+#         current_user = request.user
+#         profile =Profile.objects.get(username=current_user)
+#         print(current_user)
+#     except ObjectDoesNotExist:
+#         return redirect('user_profile')
+
+
+
+
 
 
 

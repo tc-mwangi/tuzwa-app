@@ -123,6 +123,11 @@ class Profile(models.Model):
 
     def delete__profile(self):
         self.delete()
+
+    @classmethod
+    def get_user_profile(cls,user_id):
+        profile = cls.objects.filter(username=user_id)
+        return profile
     
    
 
