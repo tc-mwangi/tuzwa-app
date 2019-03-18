@@ -5,7 +5,7 @@ from .models import Project, Profile, Rating
 class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
-        exclude = ['username']
+        exclude = ['username','avatar']
         widgets = {
         'category':forms.CheckboxSelectMultiple(),
         }

@@ -96,12 +96,13 @@ def submit_a_site(request):
             project = form.save(commit=False)
             project.username = current_user
             project.save()
-        return HttpResponseRedirect('user_profile')
+            message = "Your site has been posted"
+        return redirect('user_profile')
 
     else:
         form = ProjectForm()
  
-    return render(request, 'projects/submit_a_site.html', {"form": form})
+    return render(request, 'projects/submit_a_site.html', {"form": form, "message":message})
 
 
 
