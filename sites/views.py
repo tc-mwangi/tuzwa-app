@@ -96,8 +96,10 @@ def submit_a_site(request):
             project = form.save(commit=False)
             project.username = current_user
             project.save()
-            message = "Your site has been posted"
+            
+            
         return redirect('user_profile')
+        message = "Your site has been posted"
 
     else:
         form = ProjectForm()

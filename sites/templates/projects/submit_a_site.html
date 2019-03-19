@@ -43,6 +43,8 @@
                         
                         {% endblock javascript %}
 
+                        {{message}}
+
                         <form action="{% url 'submit_a_site'%}" method="post"  enctype="multipart/form-data">
 
                             {% csrf_token%}
