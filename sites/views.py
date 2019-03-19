@@ -1,6 +1,6 @@
 from django.http  import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render, redirect
-from sites.models import Category, Country, Project, Profile
+from sites.models import Category, Country, Project, Profile, Rating
 from django.contrib.auth.decorators import login_required
 import datetime as dt
 from django.contrib.auth import authenticate, login, logout
@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from annoying.functions import get_object_or_None
 from django.core.exceptions import ObjectDoesNotExist
 from .forms import ProfileForm, ProjectForm, RatingForm
+
 
 def all_submissions(request):
     '''displays all submitted projects
@@ -56,6 +57,7 @@ def vote_page(request):
     Returns:
         [type] -- [description]
     '''
+    
 
 
 
@@ -125,7 +127,7 @@ def designers(request):
 
 
 def api(request):
-    '''[summary]
+    '''display api page and data
     
     Arguments:
         request {[type]} -- [description]
