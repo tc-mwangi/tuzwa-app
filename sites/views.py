@@ -57,7 +57,7 @@ def vote_page(request):
     Returns:
         [type] -- [description]
     '''
-    
+
 
 
 
@@ -101,12 +101,12 @@ def submit_a_site(request):
             
             
         return redirect('user_profile')
-        message = "Your site has been posted"
+        # message = "Your site has been posted"
 
     else:
         form = ProjectForm()
  
-    return render(request, 'projects/submit_a_site.html', {"form": form, "message":message})
+    return render(request, 'projects/submit_a_site.html', {"form": form})
 
 
 

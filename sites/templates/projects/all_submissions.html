@@ -14,7 +14,7 @@
           <h5 class="header col s12 light">a curated collection of the best websites in africa</h5>
         </div>
         <div class="row center">
-          <a href="{% url 'user_profile' %}" id="download-button" class="btn-large waves-effect waves-light amber lighten-1">SUBMIT A WEBSITE</a>
+          <a href="{% url 'submit_a_site' %}" id="download-button" class="btn-large waves-effect waves-light amber lighten-1">SUBMIT A WEBSITE</a>
         </div>
         <br><br>
 
@@ -28,12 +28,61 @@
   <div class="container">
     <div class="section">
 
-     
+       
 
 
 
       <!-- Project Card Section   -->
       <div class="row">
+
+          <!-- Sample Submissions -->
+          <div class="col s12 m4">
+              <div class="card">
+                    <div class="card-image">
+                      <img src="https://images.unsplash.com/photo-1518693800412-ad92111a1d46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60">
+                      <span class="card-title">Title</span>
+                      <a class="btn-floating halfway-fab waves-effect waves-light amber" href="{%url 'vote_page'%}"><i class="material-icons">check</i>vote</a>
+                    </div>
+                    <div class="card-content">
+                      <p>Description</p>
+                      <p>Country</p>
+                      <p>Date Published</p>
+                      <p>Rating  <i class="material-icons">star</i></p>
+                    </div>
+                  </div>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="card">
+                      <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1493967921018-6ba1dcb84247?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60">
+                        <span class="card-title">Title</span>
+                        <a class="btn-floating halfway-fab waves-effect waves-light amber" href="{%url 'vote_page'%}"><i class="material-icons">check</i>vote</a>
+                      </div>
+                      <div class="card-content">
+                        <p>Description</p>
+                        <p>Country</p>
+                        <p>Date Published</p>
+                        <p>Rating  <i class="material-icons">star</i></p>
+                      </div>
+                    </div>
+              </div>
+
+              <div class="col s12 m4">
+                  <div class="card">
+                        <div class="card-image">
+                          <img src="https://images.unsplash.com/photo-1453814235491-3cfac3999928?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60">
+                          <span class="card-title">Title</span>
+                          <a class="btn-floating halfway-fab waves-effect waves-light amber" href="{%url 'vote_page'%}"><i class="material-icons">check</i>vote</a>
+                        </div>
+                        <div class="card-content">
+                          <p>Description</p>
+                          <p>Country</p>
+                          <p>Date Published</p>
+                          <p>Rating  <i class="material-icons">star</i></p>
+                        </div>
+                      </div>
+                </div>
 
         {% for project in projects%} 
         <div class="col s12 m4">
