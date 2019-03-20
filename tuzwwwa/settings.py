@@ -49,7 +49,7 @@ DATABASES['default'].update(db_from_env)
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 INSTALLED_APPS = [
-    
+    'star_ratings',  
     'rest_framework',
     'sites',
     'bootstrap4',
@@ -98,6 +98,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
+               
                 
                 
             ],
@@ -162,6 +163,9 @@ LOGIN_REDIRECT_URL = '/user_profile'
 
 LOGOUT_REDIRECT_URL = '/'
 # LOGOUT_URL = '/all_submissions'
+
+STAR_RATINGS_RERATE = False
+STAR_RATINGS_RANGE = 10
 
 # Configure Django App for Heroku.
 django_heroku.settings(locals())

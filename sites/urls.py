@@ -5,15 +5,16 @@ from django.conf.urls.static import static
 from . import views
 
 
+
 urlpatterns = [
     url(r'^submissions/$', views.all_submissions, name='all_submissions'),
     url(r'^submission-details/$', views.submission_details, name='submission_details'),
-    url(r'^modal/$', views.site_modal, name='site_modal'), 
-    url(r'^vote/$', views.vote_page, name='vote_page'),
+    url(r'^modal/$', views.form_modal, name='form_modal'), 
+    url(r'^vote/<int:project_id>/$', views.vote_page, name='vote_page'),
     url(r'^submit/$', views.submit_a_site, name='submit_a_site'),
     url(r'^designers/$', views.designers, name='designers'),
     url(r'^submit/$', views.api, name='api'),
-    url(r'^u/(?P<username>[\w-]+)$', views.user_profile, name='user_view'),  
+    # url(r'^u/(?P<username>[\w-]+)$', views.user_profile, name='user_view'),  
     url(r'^profile/$', views.user_profile, name='user_profile'),
     url(r'^edit-profile/$', views.edit_profile, name='edit_profile'),
     url(r'^search/$', views.search_project, name='search_project'),   

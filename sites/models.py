@@ -92,6 +92,11 @@ class Project(models.Model):
         return projects
 
     @classmethod
+    def project_by_id(cls,id):
+        project = cls.objects.filter(id=id)
+        return project
+
+    @classmethod
     def search_projects(cls, search_term):
         projects = cls.objects.filter(title__icontains=search_term)
         return projects
@@ -110,7 +115,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,null=True)
     avatar = models.ImageField(upload_to='avatar/', null=True)
     bio = models.TextField(max_length=255)
-    project = models.ForeignKey(Project,on_delete=models.CASCADE)
+    project = models.ForeignKey(Project,on_delete=models.CASCADE, null=True)
     email = models.EmailField()
 
 
@@ -127,6 +132,8 @@ class Profile(models.Model):
     def get_user_profile(cls,user_id):
         user_profile = cls.objects.filter(user=user_id)
         return user_profile
+
+    
     
    
 

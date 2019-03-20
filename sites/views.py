@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from annoying.functions import get_object_or_None
 from django.core.exceptions import ObjectDoesNotExist
 from .forms import ProfileForm, ProjectForm, RatingForm
+import json, itertools
 
 
 def all_submissions(request):
@@ -68,8 +69,17 @@ def submission_details(request):
     return render(request, 'projects/submission_details.html', {})
 
 
-@login_required(login_url='/accounts/login/')
-def vote_page(request):
+
+@login_required(login_url='/accounts/login')
+def vote_page(request,project_id):
+    try:
+        project = Project.objects.get(id = project_id)
+    except DoesNotExist:
+        raise Http404()
+    return render(request,"projects/vote_page.html", {"project":project})
+
+
+def form_modal(request):
     '''[summary]
     
     Arguments:
@@ -78,26 +88,11 @@ def vote_page(request):
     Returns:
         [type] -- [description]
     '''
+    form = ProjectForm
 
 
 
-
-    return render(request, 'projects/vote_page.html', {})
-
-
-def site_modal(request):
-    '''[summary]
-    
-    Arguments:
-        request {[type]} -- [description]
-    
-    Returns:
-        [type] -- [description]
-    '''
-
-
-
-    return render(request, 'projects/site_modal.html', {})
+    return render(request, 'projects/form_modal.html', {"form":form})
 
 
 @login_required(login_url='/accounts/login/')
@@ -154,11 +149,8 @@ def user_profile(request, username=None):
     return render(request, 'projects/user_profile.html', {"projects":projects,"profile":profile, "form":form})
 
 
-   
-    
-
 def edit_profile(request):
-    '''[summary]
+    '''ajax method for uploading user profile details
     
     Arguments:
         request {[type]} -- [description]
@@ -166,11 +158,41 @@ def edit_profile(request):
     Returns:
         [type] -- [description]
     '''
+    user = request.user
+    form = ProfileForm()
+
+    profile = Profile.objects.filter(user=user.id)
+
+
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.save()
+            
+            
+        return redirect('user_profile')
+        
+        # message = "Your site has been posted"
+
+    else:
+        form = ProfileForm()
+ 
+    return render(request, 'projects/edit_profile.html', {"profile":profile, "form": form})
 
 
 
-    return render(request, 'projects/edit_profile.html', {})
 
+
+
+
+
+    
+
+
+
+
+ 
 
 
 

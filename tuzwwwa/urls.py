@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^tuzwwwa/', include('sites.urls')),
     url(r'^logout/$', views.logout, {"next_page": '/'}),
     url(r'^api-auth/', include('rest_framework.urls')),
+    url(r'^ratings/', include('star_ratings.urls', namespace='ratings', app_name='ratings')),
 ]
 
 if settings.DEBUG:

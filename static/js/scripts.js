@@ -2,5 +2,8 @@
 
 $(document).ready(function(){
     $('.sidenav').sidenav();
+    $('.modal-trigger').leanModal();
   });
+
+
      
