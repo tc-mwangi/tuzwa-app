@@ -128,22 +128,7 @@ class Profile(models.Model):
     def get_user_profile(cls,user_id):
         profile = cls.objects.filter(username=user_id)
         return profile
-
-
-Rating_CHOICES = (
-    (1, '1'),
-    (2, '2'),
-    (3, '3'),
-    (4, '4'),
-    (5, '5'),
-    (6, '6'),
-    (7, '7'),
-    (8, '8'),
-    (9, '9'),
-    (10, '10')
-)
-
-
+    
    
 
 class Rating(models.Model):
@@ -155,17 +140,12 @@ class Rating(models.Model):
 
 
     nominee = models.ForeignKey(User,on_delete=models.CASCADE)
-    design = models.IntegerField(choices=Rating_CHOICES, blank=True, default=0)   
-    usability = models.IntegerField(choices=Rating_CHOICES, blank=True, default=0)
-    content = models.IntegerField(choices=Rating_CHOICES, blank=True, default=0)   
+    design = models.IntegerField(blank=True,default=0)
+    usability = models.IntegerField(blank=True,default=0)
+    creativity = models.IntegerField(blank=True,default=0)
+    content = models.IntegerField(blank=True,default=0)
     overall_score = models.DecimalField(decimal_places=2, max_digits=20,blank=True,default=0)
     project = models.ForeignKey(Project,on_delete=models.CASCADE)
-
-
-
-    # design = models.IntegerField(blank=True,default=0)
-    # usability = models.IntegerField(blank=True,default=0)
-    # creativity = models.IntegerField(blank=True,default=0)
     
    
 
