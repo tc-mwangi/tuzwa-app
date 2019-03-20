@@ -100,6 +100,7 @@ def site_modal(request):
     return render(request, 'projects/site_modal.html', {})
 
 
+@login_required(login_url='/accounts/login/')
 def submit_a_site(request):
     '''[summary]
     
@@ -117,7 +118,6 @@ def submit_a_site(request):
         form = ProjectForm(request.POST, request.FILES)
         if form.is_valid():
             project = form.save(commit=False)
-            project.username = current_user
             project.save()
             
             

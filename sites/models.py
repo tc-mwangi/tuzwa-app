@@ -55,7 +55,7 @@ class Project(models.Model):
     '''
 
 
-    username = models.ForeignKey(User,on_delete=models.CASCADE)
+    username = models.ForeignKey(User,on_delete=models.CASCADE, null=True)
     avatar = models.ImageField(upload_to='avatar/',null=True)
     title = models.CharField(max_length=255)
     screenshot = models.ImageField(upload_to='screenshot/') 

@@ -50,11 +50,30 @@
       <!-- Project Card Section   -->
       <div class="row">
 
+          {% for project in projects%} 
+          <div class="col s12 m4">
+            <div class="card">
+                  <div class="card-image">
+                    <img src="{{project.screenshot.url}}" height="200">
+                    <span class="card-title">{{project.title}}</span>
+                    <a class="btn-floating halfway-fab waves-effect waves-light amber" href="{%url 'vote_page'%}"><i class="material-icons">check</i></a>
+                  </div>
+                  <div class="card-content">
+                    <p>{{project.description}}</p>
+                    <p>{{project.country}}</p>
+                    {{date|date:"l d-F Y"}}
+                    <p>{{project.date_published}}</p>
+                    <p>Rating  <i class="material-icons amber-text">star</i></p>
+                  </div>
+                </div>
+          </div>
+          {%endfor%}
+
           <!-- Sample Submissions -->
           <div class="col s12 m4">
               <div class="card">
                     <div class="card-image">
-                      <img src="https://images.unsplash.com/photo-1518693800412-ad92111a1d46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60">
+                      <img src="https://images.unsplash.com/photo-1518693800412-ad92111a1d46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"  height="200">
                       <span class="card-title">Title</span>
                       <a class="btn-floating halfway-fab waves-effect waves-light amber" href="{%url 'vote_page'%}"><i class="material-icons">check</i>vote</a>
                     </div>
@@ -70,7 +89,7 @@
             <div class="col s12 m4">
                 <div class="card">
                       <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1493967921018-6ba1dcb84247?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60">
+                        <img src="https://images.unsplash.com/photo-1493967921018-6ba1dcb84247?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60"  height="200">
                         <span class="card-title">Title</span>
                         <a class="btn-floating halfway-fab waves-effect waves-light amber" href="{%url 'vote_page'%}"><i class="material-icons">check</i>vote</a>
                       </div>
@@ -86,7 +105,7 @@
               <div class="col s12 m4">
                   <div class="card">
                         <div class="card-image">
-                          <img src="https://images.unsplash.com/photo-1453814235491-3cfac3999928?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60">
+                          <img src="https://images.unsplash.com/photo-1453814235491-3cfac3999928?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60"  height="200">
                           <span class="card-title">Title</span>
                           <a class="btn-floating halfway-fab waves-effect waves-light amber" href="{%url 'vote_page'%}"><i class="material-icons">check</i>vote</a>
                         </div>
@@ -99,21 +118,7 @@
                       </div>
                 </div>
 
-        {% for project in projects%} 
-        <div class="col s12 m4">
-          <div class="card">
-                <div class="card-image">
-                  <img src="{{project.screenshot.url}}">
-                  <span class="card-title">{{profile.title}}</span>
-                  <a class="btn-floating halfway-fab waves-effect waves-light amber" href="{%url 'vote_page'%}"><i class="material-icons">check</i></a>
-                </div>
-                <div class="card-content">
-                  <p>{{project.description}}</p>
-                  <p>{{project.country}}</p>
-                </div>
-              </div>
-        </div>
-        {%endfor%}
+        
               
       </div>
       <!-- End Project Card Section -->

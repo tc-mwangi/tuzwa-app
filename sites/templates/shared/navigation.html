@@ -9,7 +9,7 @@
       <img href="{% url 'all_submissions' %}" src="{%static 'logo.png'%}" alt="logo" id="logo-container" class="brand-logo" height="50">
      
       <ul class="right hide-on-med-and-down">
-         
+        <li><a href="{% url 'all_submissions' %}">Home</a></li>
         <li><a href="{% url 'submit_a_site' %}">Submit</a></li>
         <li><a href="/accounts/login">Register/Login</a></li>
         <li><a href="/admin">Admin</a></li>
@@ -35,8 +35,7 @@
           <li><a href="/admin"><i class="material-icons">cloud</i>Admin</a></li>
           <li><div class="divider"></div></li>
           <li><div class="divider"></div></li>
-          <li><a href="{% url 'all_submissions' %}"><i class="material-icons">cloud</i>Home</a></li>
-          <li><div class="divider"></div></li>
+          
           <li><a href="{% url 'user_profile' %}"><i class="material-icons">cloud</i>Profile</a></li>
           <li><div class="divider"></div></li>
           <li><a href="{% url 'api' %}"><i class="material-icons">cloud</i>API</a></li>
