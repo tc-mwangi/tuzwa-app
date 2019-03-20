@@ -107,8 +107,8 @@ class Profile(models.Model):
         [type] -- [description]
     '''
 
-    username = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
-    avatar = models.ImageField(upload_to='avatar/')
+    user = models.OneToOneField(User,on_delete=models.CASCADE,null=True)
+    avatar = models.ImageField(upload_to='avatar/', null=True)
     bio = models.TextField(max_length=255)
     project = models.ForeignKey(Project,on_delete=models.CASCADE)
     email = models.EmailField()
@@ -125,8 +125,8 @@ class Profile(models.Model):
 
     @classmethod
     def get_user_profile(cls,user_id):
-        profile = cls.objects.filter(username=user_id)
-        return profile
+        user_profile = cls.objects.filter(user=user_id)
+        return user_profile
     
    
 

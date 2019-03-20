@@ -7,7 +7,7 @@ class ProjectAdmin(admin.ModelAdmin):
 
 
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('username', 'avatar', 'bio', 'project', 'email')
+    list_display = ('user', 'avatar', 'bio', 'project', 'email')
 
 
 class RatingAdmin(admin.ModelAdmin):

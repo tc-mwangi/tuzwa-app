@@ -121,13 +121,57 @@ def submit_a_site(request):
             project.save()
             
             
-        return redirect('all_submissions')
+        return redirect('user_profile')
         # message = "Your site has been posted"
 
     else:
         form = ProjectForm()
  
     return render(request, 'projects/submit_a_site.html', {"form": form})
+
+
+@login_required(login_url='/accounts/login/')
+def user_profile(request, username=None):
+    '''[summary]
+    
+    Arguments:
+        request {[type]} -- [description]
+    
+    Returns:
+        [type] -- [description]
+    '''
+    form = ProfileForm
+
+    if username is None:
+        user =request.user
+    else:
+        user = User.objects.get(username=username)
+    
+    projects = Project.objects.filter(username=user.id)
+
+    profile = Profile.objects.filter(user=user.id)
+    
+    return render(request, 'projects/user_profile.html', {"projects":projects,"profile":profile, "form":form})
+
+
+   
+    
+
+def edit_profile(request):
+    '''[summary]
+    
+    Arguments:
+        request {[type]} -- [description]
+    
+    Returns:
+        [type] -- [description]
+    '''
+
+
+
+    return render(request, 'projects/edit_profile.html', {})
+
+
 
 
 
@@ -160,42 +204,6 @@ def api(request):
 
 
     return render(request, 'projects/api.html', {})
-
-
-@login_required(login_url='/accounts/login/')
-def user_profile(request):
-    '''[summary]
-    
-    Arguments:
-        request {[type]} -- [description]
-    
-    Returns:
-        [type] -- [description]
-    '''
-    current_user = request.user
-    projects = Project.get_user_projects(current_user)
-    profile = Profile.get_user_profile(current_user)
-    
-   
-
-
-    return render(request, 'projects/user_profile.html', {"projects":projects,"profile":profile})
-
-
-
-def edit_profile(request):
-    '''[summary]
-    
-    Arguments:
-        request {[type]} -- [description]
-    
-    Returns:
-        [type] -- [description]
-    '''
-
-
-
-    return render(request, 'projects/edit_profile.html', {})
 
 
 
