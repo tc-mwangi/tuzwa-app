@@ -1,1 +1,57 @@
-<h1>search project</h1>
+{%extends 'shared/base.html'%}
+{% load static %}
+
+{%block content%}
+{{block.supper}}
+
+
+<div class="container">
+
+        <div class="row">
+          {% if projects%}
+            <h2>Found {{ projects|length }} of searched term {{message}}</h2>
+          {% else %}
+            <h2> Found 0 projects for the search term {{message}}</h2>
+          {% endif %}
+      
+        </div>
+      
+        <div class="row">
+      
+        {% if projects %}
+          {% for project in projects %}
+
+          <div class="col s12 m4">
+                <div class="card">
+                      <div class="card-image">
+                        <img src="{}">
+                        <span class="card-title">{{project.title}}</span>
+                        <a class="btn-floating halfway-fab waves-effect waves-light amber" href="{%url 'vote_page'%}"><i class="material-icons">check</i>vote</a>
+                      </div>
+                      <div class="card-content">
+                        <p>{{project.description}}</p>
+                        <p>{{project.published_date}}</p>
+                        <p>{{project.link}}</p>
+                        <p>Rating  <i class="material-icons">star</i></p>
+                      </div>
+                    </div>
+              </div>
+            <!-- <div class="col-sm-6 col-md-3">
+                <h1>{{article.title}}</h1>
+                <img src="{{article.article_image.url}}" alt="">
+                <p>{{article.post}}</p>
+            </div> -->
+          {% endfor %}
+        {% endif %}
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+{%endblock%}

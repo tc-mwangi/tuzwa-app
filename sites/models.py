@@ -96,7 +96,6 @@ class Project(models.Model):
         projects = cls.objects.filter(title__icontains=search_term)
         return projects
 
-
     
 class Profile(models.Model):
     '''creates instances of user profiles

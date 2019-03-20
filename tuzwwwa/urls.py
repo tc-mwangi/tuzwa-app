@@ -28,7 +28,9 @@ urlpatterns = [
     url(r'^tuzwwwa/', include('sites.urls')),
     url(r'^logout/$', views.logout, {"next_page": '/'}),
     url(r'^api-auth/', include('rest_framework.urls')),
-    
-
-    
 ]
+
+if settings.DEBUG:
+    urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+
+

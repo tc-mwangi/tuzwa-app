@@ -32,6 +32,27 @@ def all_submissions(request):
     return render(request, 'projects/all_submissions.html', {"projects":projects})
 
 
+def search_project(request):
+    '''[summary]
+    
+    Arguments:
+        request {[type]} -- [description]
+    
+    Returns:
+        [type] -- [description]
+    '''
+    if 'project' in request.GET and request.GET["project"]:
+        projects = Project.search_projects(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'projects/search_project.html', {"message":message, "projects":projects})
+
+    else:
+        message = "You haven't saerched for a project"
+        
+        return render(request, 'projects/all_submissions.html', {"message":message, "projects":projects})
+
+
 def submission_details(request):
     '''[summary]
     
@@ -100,7 +121,7 @@ def submit_a_site(request):
             project.save()
             
             
-        return redirect('user_profile')
+        return redirect('all_submissions')
         # message = "Your site has been posted"
 
     else:
@@ -177,19 +198,6 @@ def edit_profile(request):
     return render(request, 'projects/edit_profile.html', {})
 
 
-def search_project(request):
-    '''[summary]
-    
-    Arguments:
-        request {[type]} -- [description]
-    
-    Returns:
-        [type] -- [description]
-    '''
-
-
-
-    return render(request, 'projects/search_project.html', {})
 
 
 def following_list(request):
